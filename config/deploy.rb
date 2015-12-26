@@ -37,8 +37,7 @@ set :deploy_to, '/var/app/books'
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-    end
+    invoke 'unicorn:restart'
   end
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
