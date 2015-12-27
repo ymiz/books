@@ -49,3 +49,5 @@ namespace :deploy do
   end
 
 end
+# todo
+after 'deploy:publishing', 'deploy:restart'
